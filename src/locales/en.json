@@ -7,7 +7,9 @@
   },
   "hero": {
     "badge": "AI Marketing Automation Platform",
-    "title": "Build your brand and<br />automate sales with <span class=\"gradient-text\">AI</span>",
+    "titleLine1": "Build your brand and",
+    "titleLine2": "automate sales with ",
+    "titleHighlight": "AI",
     "subtitle": "ORION helps you find potential customers, create professional content, and automate marketing campaigns - all powered by AI",
     "ctaPrimary": "Start Free",
     "ctaSecondary": "Watch Demo",

@@ -7,7 +7,9 @@
   },
   "hero": {
     "badge": "AI Marketing Automation Platform",
-    "title": "Xây dựng thương hiệu và<br />bán hàng tự động với <span class=\"gradient-text\">AI</span>",
+    "titleLine1": "Xây dựng thương hiệu và",
+    "titleLine2": "bán hàng tự động với ",
+    "titleHighlight": "AI",
     "subtitle": "ORION giúp bạn tìm kiếm khách hàng tiềm năng, tạo nội dung chuyên nghiệp, và tự động hóa chiến dịch marketing - tất cả bằng sức mạnh AI",
     "ctaPrimary": "Bắt đầu miễn phí",
     "ctaSecondary": "Xem Demo",

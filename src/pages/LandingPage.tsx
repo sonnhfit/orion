@@ -67,7 +67,8 @@ export const LandingPage: React.FC = () => {
               <IoSparklesSharp /> {t('hero.badge')}
             </div>
             <h1 className="hero-title">
-              {t('hero.title')}
+              {t('hero.titleLine1')}<br />
+              {t('hero.titleLine2')}<span className="gradient-text">{t('hero.titleHighlight')}</span>
             </h1>
             <p className="hero-subtitle">
               {t('hero.subtitle')}
