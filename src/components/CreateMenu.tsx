@@ -24,7 +24,6 @@ export const CreateMenu: React.FC<CreateMenuProps> = ({ isCollapsed = false }) =
   useEffect(() => {
     if (isOpen && buttonRef.current && menuRef.current) {
       const buttonRect = buttonRef.current.getBoundingClientRect();
-      const menuRect = menuRef.current.getBoundingClientRect();
       
       // Position dropdown to the right of the sidebar button with small gap
       const top = buttonRect.top + window.scrollY + 8; // 8px gap from button
