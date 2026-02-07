@@ -530,14 +530,14 @@ input.color-value:active {
   box-shadow: 0 2px 0 0 #2563eb !important;
 }
 
-/* Checkbox */
-.form-group.checkbox {
+/* Checkbox Field */
+.form-group.checkbox-field {
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 2px;
 }
 
-.checkbox-label {
+.checkbox-field-label {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -546,27 +546,31 @@ input.color-value:active {
   margin: 0;
   font-size: 14px;
   color: #374151;
+  line-height: 1.5;
 }
 
-.checkbox-label span {
+.checkbox-field-label span {
   color: #374151;
+  line-height: 1.5;
 }
 
-.checkbox-label input[type="checkbox"] {
+.checkbox-field-label input[type="checkbox"] {
   cursor: pointer;
   width: 16px;
   height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
   accent-color: #2563eb;
   border: 1px solid #d1d5db;
   border-radius: 4px;
   transition: all 0.2s ease;
 }
 
-.checkbox-label input[type="checkbox"]:hover {
+.checkbox-field-label input[type="checkbox"]:hover {
   border-color: #9ca3af;
 }
 
-.checkbox-label input[type="checkbox"]:focus {
+.checkbox-field-label input[type="checkbox"]:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
@@ -653,19 +657,21 @@ input.color-value:active {
 
 .btn-edit,
 .btn-add {
-  padding: 7px 12px;
+  padding: 8px 16px;
   background: #2563eb;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   transition: all 0.15s ease;
   white-space: nowrap;
+  width: fit-content;
 }
 
 .btn-edit:hover,

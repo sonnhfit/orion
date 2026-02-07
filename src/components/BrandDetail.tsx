@@ -517,37 +517,6 @@ export const BrandDetail: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Automation Settings */}
-                <div className="settings-group">
-                  <div className="settings-group-header">
-                    <IoSettings />
-                    <h3 className="settings-group-title">Automation Settings</h3>
-                  </div>
-                  
-                  <div className="form-group checkbox">
-                    <label className="checkbox-label">
-                      <input
-                        type="checkbox"
-                        checked={settingsData.auto_respond_enabled || false}
-                        onChange={(e) => handleSettingsChange('auto_respond_enabled', e.target.checked)}
-                      />
-                      <span>{t('brands.detail.auto_respond')}</span>
-                    </label>
-                  </div>
-
-                  {settingsData.auto_respond_enabled && (
-                    <div className="form-group">
-                      <label>{t('brands.detail.auto_respond_message')}</label>
-                      <textarea
-                        value={settingsData.auto_respond_message || ''}
-                        onChange={(e) => handleSettingsChange('auto_respond_message', e.target.value)}
-                        className="form-textarea"
-                        rows={3}
-                      />
-                    </div>
-                  )}
-                </div>
-
                 {/* Save Button */}
                 <div className="form-actions settings-form-actions">
                   <button
