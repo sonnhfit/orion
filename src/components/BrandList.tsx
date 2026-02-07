@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { IoAdd, IoCheckmarkCircle, IoEllipseOutline, IoSettings } from 'react-icons/io5';
 import { apiService } from '../services/api';
 import type { Brand } from '../types/brand';
@@ -8,6 +9,7 @@ import { LoadingSpinner } from './LoadingSpinner';
 
 export const BrandList: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [brands, setBrands] = useState<Brand[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -39,7 +41,7 @@ export const BrandList: React.FC = () => {
 
   const handleBrandClick = (brandSlug: string) => {
     // Navigate to brand details page
-    console.log('Brand clicked:', brandSlug);
+    navigate(`/brand-kit/${brandSlug}`);
   };
 
   const toggleBrandStatus = async (e: React.MouseEvent, brand: Brand) => {

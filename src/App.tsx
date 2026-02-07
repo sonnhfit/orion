@@ -4,6 +4,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { RootRedirect } from './components/RootRedirect';
 import { HomePage } from './pages/HomePage';
 import { BrandKitPage } from './pages/BrandKitPage';
+import { BrandDetailPage } from './pages/BrandDetailPage';
 import './App.css';
 
 function App() {
@@ -25,6 +26,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <BrandKitPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/brand-kit/:brandSlug"
+            element={
+              <ProtectedRoute>
+                <BrandDetailPage />
               </ProtectedRoute>
             }
           />
