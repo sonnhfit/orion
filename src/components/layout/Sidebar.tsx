@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import {
   IoFlashSharp,
@@ -14,7 +15,8 @@ import {
   IoPeople,
   IoChevronBack,
   IoChevronForward,
-  IoClose
+  IoClose,
+  IoBrushSharp
 } from 'react-icons/io5';
 import { CreateMenu } from '../CreateMenu';
 import '../../styles/layout/Sidebar.css';
@@ -35,10 +37,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onCloseMobile
 }) => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogoClick = () => {
-    // Reload home page for logged-in users
-    window.location.href = '/home';
+    // Navigate to home page without full reload
+    navigate('/home');
   };
 
   return (
@@ -65,16 +68,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <div className="sidebar-content">
         <CreateMenu isCollapsed={isCollapsed} />
 
-        <nav className="sidebar-nav">
-          <a href="#" className="nav-item active" title="Trang chủ">
-            <IoHomeSharp className="nav-icon" />
-            {!isCollapsed && <span>Trang chủ</span>}
-          </a>
-          <a href="#" className="nav-item" title="Tạo bằng AI">
-            <IoSparkles className="nav-icon" />
-            {!isCollapsed && <span>Tạo bằng AI</span>}
-          </a>
-        </nav>
+        <div className="sidebar-section">
+          <Link to="/brand-kit" className="nav-item" title="BrandKit">
+            <IoBrushSharp className="nav-icon" />
+            {!isCollapsed && <span>BrandKit</span>}
+          </Link>
+        </div>
 
         <div className="sidebar-section">
           {!isCollapsed && <h3 className="section-title">Công cụ AI</h3>}

@@ -3,6 +3,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { RootRedirect } from './components/RootRedirect';
 import { HomePage } from './pages/HomePage';
+import { BrandKitPage } from './pages/BrandKitPage';
 import './App.css';
 
 function App() {
@@ -16,6 +17,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <HomePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/brand-kit"
+            element={
+              <ProtectedRoute>
+                <BrandKitPage />
               </ProtectedRoute>
             }
           />
