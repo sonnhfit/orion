@@ -77,3 +77,50 @@ export interface BrandListResponse {
   previous?: string;
   results: Brand[];
 }
+
+/**
+ * Data Source Types
+ */
+export interface DataSource {
+  id: number;
+  brand: number;
+  brand_name: string;
+  platform_type: string;
+  platform_type_display: string;
+  source_name: string;
+  source_url?: string;
+  crawl_frequency: string;
+  crawl_frequency_display: string;
+  is_active: boolean;
+  last_crawled_at?: string;
+  notes?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CreateDataSourceData {
+  brand: number;
+  platform_type: string;
+  source_name: string;
+  source_url?: string;
+  crawl_frequency?: string;
+  is_active?: boolean;
+  notes?: string;
+}
+
+export interface UpdateDataSourceData {
+  brand?: number;
+  platform_type?: string;
+  source_name?: string;
+  source_url?: string;
+  crawl_frequency?: string;
+  is_active?: boolean;
+  notes?: string;
+}
+
+export interface DataSourceListResponse {
+  count: number;
+  next?: string;
+  previous?: string;
+  results: DataSource[];
+}

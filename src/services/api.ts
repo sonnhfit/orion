@@ -1,6 +1,16 @@
 import axios, { type AxiosInstance } from 'axios';
 import type { LoginCredentials, LoginResponse, RegisterData, User } from '../types/auth';
-import type { Brand, BrandListResponse, CreateBrandData, UpdateBrandData, SocialPlatform } from '../types/brand';
+import type { 
+  Brand, 
+  BrandListResponse, 
+  CreateBrandData, 
+  UpdateBrandData, 
+  SocialPlatform,
+  DataSource,
+  CreateDataSourceData,
+  UpdateDataSourceData,
+  DataSourceListResponse 
+} from '../types/brand';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://orionai.runagent.io';
 
@@ -143,6 +153,63 @@ class ApiService {
 
   async getPlatforms(): Promise<SocialPlatform[]> {
     const response = await this.api.get<SocialPlatform[]>('/api/v1/brands/platforms/');
+    return response.data;
+  }
+
+  // Data Source endpoints
+  async getDataSources(brandId?: number): Promise<DataSourceListResponse> {
+    const params: any = {};
+    if (brandId) {
+      params.brand = brandId;
+    }
+    const response = await this.api.get<DataSource[] | DataSourceListResponse>('/api/v1/brands/data-sources/', { params });
+    
+    // Handle both array response and paginated response
+    if (Array.isArray(response.data)) {
+      return {
+        count: response.data.length,
+        results: response.data,
+      };
+    }
+    return response.data;
+  }
+
+  async getDataSource(id: number): Promise<DataSource> {
+    const response = await this.api.get<DataSource>(`/api/v1/brands/data-sources/${id}/`);
+    return response.data;
+  }
+
+  async createDataSource(data: CreateDataSourceData): Promise<DataSource> {
+    const response = await this.api.post<DataSource>('/api/v1/brands/data-sources/', data);
+    return response.data;
+  }
+
+  async updateDataSource(id: number, data: UpdateDataSourceData): Promise<DataSource> {
+    const response = await this.api.put<DataSource>(`/api/v1/brands/data-sources/${id}/`, data);
+    return response.data;
+  }
+
+  async patchDataSource(id: number, data: UpdateDataSourceData): Promise<DataSource> {
+    const response = await this.api.patch<DataSource>(`/api/v1/brands/data-sources/${id}/`, data);
+    return response.data;
+  }
+
+  async deleteDataSource(id: number): Promise<void> {
+    await this.api.delete(`/api/v1/brands/data-sources/${id}/`);
+  }
+
+  async activateDataSource(id: number): Promise<{ status: string }> {
+    const response = await this.api.post<{ status: string }>(`/api/v1/brands/data-sources/${id}/activate/`);
+    return response.data;
+  }
+
+  async deactivateDataSource(id: number): Promise<{ status: string }> {
+    const response = await this.api.post<{ status: string }>(`/api/v1/brands/data-sources/${id}/deactivate/`);
+    return response.data;
+  }
+
+  async crawlDataSource(id: number): Promise<{ status: string }> {
+    const response = await this.api.post<{ status: string }>(`/api/v1/brands/data-sources/${id}/crawl_now/`);
     return response.data;
   }
 }
