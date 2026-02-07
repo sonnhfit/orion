@@ -37,9 +37,8 @@
 /* Content Body - Scrollable */
 .content-body {
   flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 40px 60px;
+  overflow: auto;
+  padding: 0;
 }
 
 .content-body::-webkit-scrollbar {

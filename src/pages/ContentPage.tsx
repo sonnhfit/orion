@@ -10,6 +10,7 @@ export const ContentPage: React.FC = () => {
   const [showConfig, setShowConfig] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [likedContent, setLikedContent] = useState<Set<string>>(new Set());
+  const [approvedContent, setApprovedContent] = useState<Set<string>>(new Set());
   const [channels, setChannels] = useState<SocialMediaChannel[]>([
     {
       id: 'ch_1',
@@ -134,6 +135,42 @@ export const ContentPage: React.FC = () => {
     });
   };
 
+  const handleApprove = () => {
+    if (!selectedContent) return;
+    
+    // Mark content as approved
+    setApprovedContent((prev) => {
+      const newSet = new Set(prev);
+      newSet.add(selectedContent.id);
+      return newSet;
+    });
+
+    // Auto-select next unapproved content
+    const currentIndex = mockContents.findIndex(c => c.id === selectedContent.id);
+    const nextContent = mockContents.slice(currentIndex + 1).find(c => !approvedContent.has(c.id));
+    
+    if (nextContent) {
+      setSelectedContent(nextContent);
+    } else {
+      // If no more unapproved content, show message
+      setSelectedContent(null);
+    }
+  };
+
+  const handleReject = () => {
+    if (!selectedContent) return;
+    
+    // Auto-select next content
+    const currentIndex = mockContents.findIndex(c => c.id === selectedContent.id);
+    const nextContent = mockContents[currentIndex + 1];
+    
+    if (nextContent) {
+      setSelectedContent(nextContent);
+    } else {
+      setSelectedContent(null);
+    }
+  };
+
   // Auto-select first content if none selected
   React.useEffect(() => {
     if (!selectedContent && mockContents.length > 0) {
@@ -150,30 +187,6 @@ export const ContentPage: React.FC = () => {
           <div className="content-preview">
             {selectedContent ? (
               <div className="preview-container">
-                {/* Settings Button - Top Right */}
-                <button
-                  className="settings-button"
-                  onClick={() => setShowConfig(true)}
-                  title="Cấu hình"
-                >
-                  <IoSettings />
-                </button>
-
-                {/* Social Media Post Header */}
-                <div className="post-header">
-                  <div className="post-author">
-                    <div className="author-avatar">🏢</div>
-                    <div className="author-info">
-                      <h4>Thương hiệu của bạn</h4>
-                      <span className="post-time">
-                        {new Date(selectedContent.createdAt).toLocaleDateString('vi-VN')}
-                      </span>
-                    </div>
-                  </div>
-                  <span className={`post-status ${selectedContent.status}`}>
-                    {selectedContent.status === 'published' ? '✓ Đã đăng' : selectedContent.status === 'scheduled' ? '⏰ Đã lên lịch' : '📝 Nháp'}
-                  </span>
-                </div>
 
                 {/* Post Content */}
                 <div className="post-content">
@@ -210,22 +223,22 @@ export const ContentPage: React.FC = () => {
                   </button>
                 </div>
 
-                {/* Post Details */}
-                <div className="post-details">
-                  <div className="detail-row">
-                    <span className="label">Loại nội dung:</span>
-                    <span className="value">{selectedContent.contentType === 'text' ? 'Văn bản' : selectedContent.contentType === 'image' ? 'Hình ảnh' : selectedContent.contentType === 'video' ? 'Video' : 'Carousel'}</span>
-                  </div>
-                  <div className="detail-row">
-                    <span className="label">Trạng thái:</span>
-                    <span className={`value status-${selectedContent.status}`}>
-                      {selectedContent.status === 'published' ? 'Đã đăng' : selectedContent.status === 'scheduled' ? 'Đã lên lịch' : 'Nháp'}
-                    </span>
-                  </div>
-                  <div className="detail-row">
-                    <span className="label">Mô tả:</span>
-                    <span className="value">{selectedContent.description}</span>
-                  </div>
+                {/* Approval Actions */}
+                <div className="approval-actions">
+                  <button
+                    className="approve-btn"
+                    onClick={handleApprove}
+                    title="Duyệt nội dung này"
+                  >
+                    ✓ Duyệt
+                  </button>
+                  <button
+                    className="reject-btn"
+                    onClick={handleReject}
+                    title="Từ chối nội dung này"
+                  >
+                    ✕ Từ chối
+                  </button>
                 </div>
               </div>
             ) : (
@@ -240,7 +253,7 @@ export const ContentPage: React.FC = () => {
             {mockContents.map((content) => (
               <div
                 key={content.id}
-                className={`content-item ${selectedContent?.id === content.id ? 'active' : ''}`}
+                className={`content-item ${selectedContent?.id === content.id ? 'active' : ''} ${approvedContent.has(content.id) ? 'approved' : ''}`}
                 onClick={() => handleSelectContent(content)}
               >
                 <div className="content-thumbnail">
