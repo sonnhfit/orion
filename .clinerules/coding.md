@@ -1,0 +1,1 @@
+giao diện phải thân thiện với mobile và responsive, nên sử dụng các best practices phổ biến
