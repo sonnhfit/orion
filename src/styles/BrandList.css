@@ -1,0 +1,403 @@
+/* Brand List Section */
+.brands-section {
+  width: 100%;
+  padding: 0 20px 40px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brands-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.brands-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.brands-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.btn-create-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #89CFF0 0%, #4A9EFF 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-create-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+}
+
+.btn-create-brand:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 18px;
+}
+
+/* Error Message */
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.error-message p {
+  margin: 0;
+  color: #d32f2f;
+  font-size: 14px;
+  flex: 1;
+}
+
+.btn-retry {
+  padding: 6px 16px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-retry:hover {
+  background-color: #b71c1c;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+}
+
+.empty-icon {
+  font-size: 64px;
+  color: #667eea;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 24px 0;
+  max-width: 400px;
+}
+
+.btn-create-brand-empty {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #89CFF0 0%, #4A9EFF 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-create-brand-empty:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+}
+
+/* Brands Grid */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.brand-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+}
+
+.brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
+}
+
+.brand-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.brand-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #89CFF0 0%, #4A9EFF 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-placeholder {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.btn-status {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-status.active {
+  color: #4caf50;
+}
+
+.btn-status.active:hover {
+  color: #45a049;
+  transform: scale(1.1);
+}
+
+.btn-status.inactive {
+  color: #999;
+}
+
+.btn-status.inactive:hover {
+  color: #666;
+  transform: scale(1.1);
+}
+
+.brand-info {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brand-description {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 12px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+}
+
+.brand-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meta-item {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.meta-label {
+  color: #999;
+  font-weight: 500;
+}
+
+.meta-value {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.meta-value.status-active {
+  color: #4caf50;
+  background: #e8f5e9;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.meta-value.status-inactive {
+  color: #f57c00;
+  background: #fff3e0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.brand-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn-settings {
+  flex: 1;
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4A9EFF;
+}
+
+.btn-settings:hover {
+  background: #4A9EFF;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .brands-section {
+    padding: 0 16px 32px;
+  }
+
+  .brands-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-create-brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brands-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brands-title {
+    font-size: 24px;
+  }
+
+  .brand-card {
+    padding: 16px;
+  }
+
+  .empty-state {
+    padding: 40px 20px;
+  }
+
+  .empty-icon {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brands-section {
+    padding: 0 12px 24px;
+  }
+
+  .brands-title {
+    font-size: 20px;
+  }
+
+  .brands-subtitle {
+    font-size: 12px;
+  }
+
+  .brand-card {
+    padding: 12px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .brand-description {
+    font-size: 12px;
+  }
+
+  .meta-item {
+    font-size: 12px;
+  }
+}

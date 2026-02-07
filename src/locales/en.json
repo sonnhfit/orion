@@ -169,6 +169,25 @@
       "divider": "Or"
     }
   },
+  "brands": {
+    "my_brands": "My Brands",
+    "manage_your_brands": "Manage and activate your brands for AI automation",
+    "create_new": "Create Brand",
+    "create_first_brand": "Create Your First Brand",
+    "no_brands": "No Brands Yet",
+    "no_brands_description": "Start by creating your first brand to manage your business with ORION",
+    "social_accounts": "Social Accounts",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "activate": "Activate brand",
+    "deactivate": "Deactivate brand",
+    "settings": "Settings",
+    "error_loading": "Failed to load brands"
+  },
+  "common": {
+    "retry": "Retry"
+  },
   "footer": {
     "description": "Vietnam's Leading AI Marketing Automation Platform",
     "product": "Product",

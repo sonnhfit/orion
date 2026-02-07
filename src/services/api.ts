@@ -1,5 +1,6 @@
 import axios, { type AxiosInstance } from 'axios';
 import type { LoginCredentials, LoginResponse, RegisterData, User } from '../types/auth';
+import type { Brand, BrandListResponse, CreateBrandData, UpdateBrandData, SocialPlatform } from '../types/brand';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://orionai.runagent.io';
 
@@ -95,6 +96,53 @@ class ApiService {
     const response = await this.api.post<LoginResponse>('/api/v1/users/login/apple', {
       identity_token: identityToken,
     });
+    return response.data;
+  }
+
+  // Brand endpoints
+  async getBrands(): Promise<BrandListResponse> {
+    const response = await this.api.get<Brand[] | BrandListResponse>('/api/v1/brands/');
+    // Handle both array response and paginated response
+    if (Array.isArray(response.data)) {
+      return {
+        count: response.data.length,
+        results: response.data,
+      };
+    }
+    return response.data;
+  }
+
+  async getBrand(slug: string): Promise<Brand> {
+    const response = await this.api.get<Brand>(`/api/v1/brands/${slug}/`);
+    return response.data;
+  }
+
+  async createBrand(data: CreateBrandData): Promise<Brand> {
+    const response = await this.api.post<Brand>('/api/v1/brands/', data);
+    return response.data;
+  }
+
+  async updateBrand(slug: string, data: UpdateBrandData): Promise<Brand> {
+    const response = await this.api.put<Brand>(`/api/v1/brands/${slug}/`, data);
+    return response.data;
+  }
+
+  async deleteBrand(slug: string): Promise<void> {
+    await this.api.delete(`/api/v1/brands/${slug}/`);
+  }
+
+  async activateBrand(slug: string): Promise<{ status: string }> {
+    const response = await this.api.post<{ status: string }>(`/api/v1/brands/${slug}/activate/`);
+    return response.data;
+  }
+
+  async deactivateBrand(slug: string): Promise<{ status: string }> {
+    const response = await this.api.post<{ status: string }>(`/api/v1/brands/${slug}/deactivate/`);
+    return response.data;
+  }
+
+  async getPlatforms(): Promise<SocialPlatform[]> {
+    const response = await this.api.get<SocialPlatform[]>('/api/v1/brands/platforms/');
     return response.data;
   }
 }

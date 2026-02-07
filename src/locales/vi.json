@@ -169,6 +169,25 @@
       "divider": "Hoặc"
     }
   },
+  "brands": {
+    "my_brands": "Các thương hiệu của tôi",
+    "manage_your_brands": "Quản lý và kích hoạt các thương hiệu của bạn để tự động hóa AI",
+    "create_new": "Tạo thương hiệu",
+    "create_first_brand": "Tạo thương hiệu đầu tiên của bạn",
+    "no_brands": "Chưa có thương hiệu nào",
+    "no_brands_description": "Bắt đầu bằng cách tạo thương hiệu đầu tiên của bạn để quản lý kinh doanh với ORION",
+    "social_accounts": "Tài khoản mạng xã hội",
+    "status": "Trạng thái",
+    "active": "Hoạt động",
+    "inactive": "Không hoạt động",
+    "activate": "Kích hoạt thương hiệu",
+    "deactivate": "Hủy kích hoạt thương hiệu",
+    "settings": "Cài đặt",
+    "error_loading": "Không thể tải danh sách thương hiệu"
+  },
+  "common": {
+    "retry": "Thử lại"
+  },
   "footer": {
     "description": "Nền tảng AI Marketing Automation hàng đầu Việt Nam",
     "product": "Sản phẩm",
