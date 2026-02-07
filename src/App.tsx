@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { BrandKitPage } from './pages/BrandKitPage';
 import { BrandDetailPage } from './pages/BrandDetailPage';
 import { DataSourcesPage } from './pages/DataSourcesPage';
+import { ContentPage } from './pages/ContentPage';
 import './App.css';
 
 function App() {
@@ -43,6 +44,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <DataSourcesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/content"
+            element={
+              <ProtectedRoute>
+                <ContentPage />
               </ProtectedRoute>
             }
           />

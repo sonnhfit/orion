@@ -15,7 +15,8 @@ import {
   IoChevronForward,
   IoClose,
   IoBrushSharp,
-  IoGlobe
+  IoGlobe,
+  IoDocument
 } from 'react-icons/io5';
 import { CreateMenu } from '../CreateMenu';
 import '../../styles/layout/Sidebar.css';
@@ -75,6 +76,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <Link to="/data-sources" className="nav-item" title="Nguồn dữ liệu">
             <IoGlobe className="nav-icon" />
             {!isCollapsed && <span>Nguồn dữ liệu</span>}
+          </Link>
+          <Link to="/content" className="nav-item" title="Nội dung">
+            <IoDocument className="nav-icon" />
+            {!isCollapsed && <span>Nội dung</span>}
           </Link>
         </div>
 
