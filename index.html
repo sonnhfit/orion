@@ -1,8 +1,90 @@
 <!doctype html>
-<html lang="vi">
+<html lang="vi" id="html-root">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Language Detection and Meta Tags Update Script -->
+    <script>
+      (function() {
+        const translations = {
+          vi: {
+            title: "ORION - Nền tảng AI Automation cho Marketing và Bán hàng",
+            description: "ORION là nền tảng AI automation giúp xây dựng thương hiệu và bán hàng tự động. Crawl dữ liệu thị trường, tìm khách hàng tiềm năng, tạo nội dung AI, và tự động hóa chiến lược marketing.",
+            keywords: "AI marketing, automation marketing, AI bán hàng, tạo nội dung AI, crawl dữ liệu, lead generation, AI automation, marketing automation, Vietnam AI, content generation, outreach automation",
+            language: "Vietnamese",
+            locale: "vi_VN"
+          },
+          en: {
+            title: "ORION - AI Automation Platform for Marketing and Sales",
+            description: "ORION is an AI automation platform that helps you build your brand and automate sales. Crawl market data, find potential customers, create AI content, and automate your marketing strategy.",
+            keywords: "AI marketing, marketing automation, sales automation, AI content creation, data crawling, lead generation, AI automation, marketing automation, content generation, outreach automation",
+            language: "English",
+            locale: "en_US"
+          }
+        };
+
+        function detectLanguage() {
+          const savedLanguage = localStorage.getItem('language');
+          if (savedLanguage && translations[savedLanguage]) {
+            return savedLanguage;
+          }
+          
+          const browserLanguage = navigator.language.split('-')[0];
+          return translations[browserLanguage] ? browserLanguage : 'vi';
+        }
+
+        function updateMetaTags(lang) {
+          const trans = translations[lang];
+          
+          // Update html lang attribute
+          document.documentElement.lang = lang;
+          document.documentElement.setAttribute('lang', lang);
+          
+          // Update title
+          document.title = trans.title;
+          
+          // Update or create meta tags
+          const updateMeta = (name, content, isProperty = false) => {
+            const attr = isProperty ? 'property' : 'name';
+            let element = document.querySelector(`meta[${attr}="${name}"]`);
+            
+            if (!element) {
+              element = document.createElement('meta');
+              element.setAttribute(attr, name);
+              document.head.appendChild(element);
+            }
+            element.setAttribute('content', content);
+          };
+          
+          updateMeta('title', trans.title);
+          updateMeta('description', trans.description);
+          updateMeta('keywords', trans.keywords);
+          updateMeta('language', trans.language);
+          updateMeta('og:title', trans.title, true);
+          updateMeta('og:description', trans.description, true);
+          updateMeta('og:locale', trans.locale, true);
+          updateMeta('twitter:title', trans.title);
+          updateMeta('twitter:description', trans.description);
+        }
+
+        const detectedLang = detectLanguage();
+        updateMetaTags(detectedLang);
+        
+        // Listen for language changes
+        window.addEventListener('i18nextLanguageChanged', (e) => {
+          const newLang = e.detail?.lng || localStorage.getItem('language') || 'vi';
+          updateMetaTags(newLang);
+        });
+        
+        // Watch for language changes in localStorage
+        window.addEventListener('storage', (e) => {
+          if (e.key === 'language' && e.newValue) {
+            updateMetaTags(e.newValue);
+          }
+        });
+      })();
+    </script>
     
     <!-- Primary Meta Tags -->
     <title>ORION - Nền tảng AI Automation cho Marketing và Bán hàng</title>
@@ -40,6 +122,7 @@
     <meta name="twitter:title" content="ORION - Nền tảng AI Automation cho Marketing và Bán hàng" />
     <meta name="twitter:description" content="ORION là nền tảng AI automation giúp xây dựng thương hiệu và bán hàng tự động. Crawl dữ liệu thị trường, tìm khách hàng tiềm năng, tạo nội dung AI, và tự động hóa chiến lược marketing." />
     <meta name="twitter:image" content="https://orion.runagent.io/twitter-image.jpg" />
+
     
     <!-- Structured Data (JSON-LD) for Search Engines and LLM Agents -->
     <script type="application/ld+json">
