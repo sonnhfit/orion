@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/AuthModal.css';
 
 interface AuthModalProps {
@@ -22,6 +23,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { login, register } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   if (!isOpen) return null;
 
@@ -46,7 +48,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
         });
       } else {
         if (formData.password !== formData.password_confirm) {
-          setError('Mật khẩu không khớp');
+          setError(t('auth.signup.password_mismatch'));
           setIsLoading(false);
           return;
         }
@@ -82,14 +84,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
         </button>
         
         <h2 className="modal-title">
-          {isLogin ? 'Đăng nhập' : 'Đăng ký'}
+          {isLogin ? t('auth.login.title') : t('auth.signup.title')}
         </h2>
 
         {error && <div className="error-message">{error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label htmlFor="username">Tên đăng nhập</label>
+            <label htmlFor="username">{isLogin ? t('auth.login.username') : t('auth.signup.username')}</label>
             <input
               type="text"
               id="username"
@@ -97,14 +99,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               value={formData.username}
               onChange={handleChange}
               required
-              placeholder="Nhập tên đăng nhập"
+              placeholder={isLogin ? t('auth.login.username_placeholder') : t('auth.signup.username_placeholder')}
             />
           </div>
 
           {!isLogin && (
             <>
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{t('auth.signup.email')}</label>
                 <input
                   type="email"
                   id="email"
@@ -112,31 +114,31 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="Nhập email"
+                  placeholder={t('auth.signup.email_placeholder')}
                 />
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="first_name">Họ</label>
+                  <label htmlFor="first_name">{t('auth.signup.first_name')}</label>
                   <input
                     type="text"
                     id="first_name"
                     name="first_name"
                     value={formData.first_name}
                     onChange={handleChange}
-                    placeholder="Nhập họ"
+                    placeholder={t('auth.signup.first_name_placeholder')}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="last_name">Tên</label>
+                  <label htmlFor="last_name">{t('auth.signup.last_name')}</label>
                   <input
                     type="text"
                     id="last_name"
                     name="last_name"
                     value={formData.last_name}
                     onChange={handleChange}
-                    placeholder="Nhập tên"
+                    placeholder={t('auth.signup.last_name_placeholder')}
                   />
                 </div>
               </div>
@@ -144,7 +146,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           )}
 
           <div className="form-group">
-            <label htmlFor="password">Mật khẩu</label>
+            <label htmlFor="password">{isLogin ? t('auth.login.password') : t('auth.signup.password')}</label>
             <input
               type="password"
               id="password"
@@ -152,13 +154,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               value={formData.password}
               onChange={handleChange}
               required
-              placeholder="Nhập mật khẩu"
+              placeholder={isLogin ? t('auth.login.password_placeholder') : t('auth.signup.password_placeholder')}
             />
           </div>
 
           {!isLogin && (
             <div className="form-group">
-              <label htmlFor="password_confirm">Xác nhận mật khẩu</label>
+              <label htmlFor="password_confirm">{t('auth.signup.password_confirm')}</label>
               <input
                 type="password"
                 id="password_confirm"
@@ -166,29 +168,29 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 value={formData.password_confirm}
                 onChange={handleChange}
                 required
-                placeholder="Nhập lại mật khẩu"
+                placeholder={t('auth.signup.password_confirm_placeholder')}
               />
             </div>
           )}
 
           <button type="submit" className="submit-button" disabled={isLoading}>
-            {isLoading ? 'Đang xử lý...' : (isLogin ? 'Đăng nhập' : 'Đăng ký')}
+            {isLoading ? (isLogin ? t('auth.login.loading') : t('auth.signup.loading')) : (isLogin ? t('auth.login.button') : t('auth.signup.button'))}
           </button>
         </form>
 
         <div className="auth-switch">
           {isLogin ? (
             <>
-              Chưa có tài khoản?{' '}
+              {t('auth.login.no_account')}{' '}
               <button onClick={() => setIsLogin(false)} className="switch-button">
-                Đăng ký ngay
+                {t('auth.login.signup_link')}
               </button>
             </>
           ) : (
             <>
-              Đã có tài khoản?{' '}
+              {t('auth.signup.have_account')}{' '}
               <button onClick={() => setIsLogin(true)} className="switch-button">
-                Đăng nhập
+                {t('auth.signup.login_link')}
               </button>
             </>
           )}

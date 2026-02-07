@@ -132,6 +132,39 @@
     "button": "Start Free Today",
     "note": "No credit card needed • Cancel anytime"
   },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "username_placeholder": "Enter your username",
+      "password": "Password",
+      "password_placeholder": "Enter your password",
+      "button": "Login",
+      "loading": "Processing...",
+      "no_account": "Don't have an account?",
+      "signup_link": "Sign up now"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "username": "Username",
+      "username_placeholder": "Enter your username",
+      "email": "Email",
+      "email_placeholder": "Enter your email",
+      "first_name": "First Name",
+      "first_name_placeholder": "Enter your first name",
+      "last_name": "Last Name",
+      "last_name_placeholder": "Enter your last name",
+      "password": "Password",
+      "password_placeholder": "Enter your password",
+      "password_confirm": "Confirm Password",
+      "password_confirm_placeholder": "Re-enter your password",
+      "button": "Sign Up",
+      "loading": "Processing...",
+      "have_account": "Already have an account?",
+      "login_link": "Login",
+      "password_mismatch": "Passwords do not match"
+    }
+  },
   "footer": {
     "description": "Vietnam's Leading AI Marketing Automation Platform",
     "product": "Product",

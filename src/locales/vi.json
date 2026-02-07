@@ -132,6 +132,39 @@
     "button": "Bắt đầu miễn phí ngay hôm nay",
     "note": "Không cần thẻ tín dụng • Hủy bất cứ lúc nào"
   },
+  "auth": {
+    "login": {
+      "title": "Đăng nhập",
+      "username": "Tên đăng nhập",
+      "username_placeholder": "Nhập tên đăng nhập",
+      "password": "Mật khẩu",
+      "password_placeholder": "Nhập mật khẩu",
+      "button": "Đăng nhập",
+      "loading": "Đang xử lý...",
+      "no_account": "Chưa có tài khoản?",
+      "signup_link": "Đăng ký ngay"
+    },
+    "signup": {
+      "title": "Đăng ký",
+      "username": "Tên đăng nhập",
+      "username_placeholder": "Nhập tên đăng nhập",
+      "email": "Email",
+      "email_placeholder": "Nhập email",
+      "first_name": "Họ",
+      "first_name_placeholder": "Nhập họ",
+      "last_name": "Tên",
+      "last_name_placeholder": "Nhập tên",
+      "password": "Mật khẩu",
+      "password_placeholder": "Nhập mật khẩu",
+      "password_confirm": "Xác nhận mật khẩu",
+      "password_confirm_placeholder": "Nhập lại mật khẩu",
+      "button": "Đăng ký",
+      "loading": "Đang xử lý...",
+      "have_account": "Đã có tài khoản?",
+      "login_link": "Đăng nhập",
+      "password_mismatch": "Mật khẩu không khớp"
+    }
+  },
   "footer": {
     "description": "Nền tảng AI Marketing Automation hàng đầu Việt Nam",
     "product": "Sản phẩm",
