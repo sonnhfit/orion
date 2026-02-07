@@ -1,0 +1,149 @@
+{
+  "header": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "pricing": "Pricing",
+    "login": "Login"
+  },
+  "hero": {
+    "badge": "AI Marketing Automation Platform",
+    "title": "Build your brand and<br />automate sales with <span class=\"gradient-text\">AI</span>",
+    "subtitle": "ORION helps you find potential customers, create professional content, and automate marketing campaigns - all powered by AI",
+    "ctaPrimary": "Start Free",
+    "ctaSecondary": "Watch Demo",
+    "stats": {
+      "users": "Users",
+      "usersValue": "10K+",
+      "leads": "Leads Found",
+      "leadsValue": "1M+",
+      "content": "Content Created",
+      "contentValue": "5M+"
+    }
+  },
+  "features": {
+    "title": "Outstanding Features",
+    "subtitle": "A complete platform to automate your entire marketing process",
+    "marketAnalysis": {
+      "title": "Smart Market Analysis",
+      "description": "Crawl and analyze data from social media, forums, marketplaces to understand market needs and trends.",
+      "item1": "Automatic data collection",
+      "item2": "Analyze customer insights",
+      "item3": "Competitor tracking"
+    },
+    "findLeads": {
+      "title": "Find Potential Customers",
+      "badge": "Most Popular",
+      "description": "AI automatically finds, scores, and classifies customers that fit your products/services.",
+      "item1": "Find high-quality leads",
+      "item2": "Automatic scoring",
+      "item3": "Group classification"
+    },
+    "contentAI": {
+      "title": "AI Content Creation",
+      "description": "Automatically create articles, video scripts, emails and professional landing pages with AI.",
+      "item1": "Personalized content",
+      "item2": "Multi-platform",
+      "item3": "SEO optimized"
+    },
+    "outreach": {
+      "title": "Automatic Outreach",
+      "description": "Reach out and follow up customers automatically with personalized messages from AI.",
+      "item1": "Automatic messaging",
+      "item2": "Smart follow-up",
+      "item3": "Avoid spam"
+    },
+    "learning": {
+      "title": "Learn & Optimize Continuously",
+      "description": "The system learns from every interaction to improve strategy and increase conversion rates.",
+      "item1": "Machine Learning",
+      "item2": "Automatic A/B Testing",
+      "item3": "ROI Optimization"
+    },
+    "analytics": {
+      "title": "Analytics & Reporting",
+      "description": "Intuitive dashboard with key metrics to track campaign performance.",
+      "item1": "Detailed reports",
+      "item2": "Real-time tracking",
+      "item3": "Export data"
+    }
+  },
+  "howItWorks": {
+    "title": "How it Works",
+    "subtitle": "4-step automated process to take your business to the next level",
+    "step1": {
+      "title": "Collect Data",
+      "description": "AI crawls and analyzes data from multiple sources to understand the market and customers"
+    },
+    "step2": {
+      "title": "Identify Opportunities",
+      "description": "Find and score potential customers, develop approach strategy"
+    },
+    "step3": {
+      "title": "Create & Deploy",
+      "description": "AI creates content and automatically reaches out to customers with personalized messages"
+    },
+    "step4": {
+      "title": "Learn & Optimize",
+      "description": "Learn from results and continuously improve to increase conversion rates"
+    }
+  },
+  "pricing": {
+    "title": "Pricing Suitable for All Sizes",
+    "subtitle": "Choose a plan that fits your needs, upgrade anytime",
+    "starter": {
+      "name": "Starter",
+      "price": "Free",
+      "feature1": "100 leads/month",
+      "feature2": "1 brand",
+      "feature3": "Basic content creation",
+      "feature4": "Community support",
+      "button": "Get Started"
+    },
+    "professional": {
+      "name": "Professional",
+      "badge": "Most Popular",
+      "price": "499K",
+      "period": "/month",
+      "feature1": "5,000 leads/month",
+      "feature2": "5 brands",
+      "feature3": "Advanced AI content",
+      "feature4": "Auto outreach",
+      "feature5": "Analytics & Reports",
+      "feature6": "Priority support",
+      "button": "Try 14 Days Free"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "Contact",
+      "feature1": "Unlimited leads",
+      "feature2": "Unlimited brands",
+      "feature3": "Custom AI model",
+      "feature4": "White-label",
+      "feature5": "Dedicated support",
+      "feature6": "SLA guarantee",
+      "button": "Contact Sales"
+    }
+  },
+  "cta": {
+    "title": "Ready to Accelerate Your Business?",
+    "subtitle": "Join thousands of businesses using ORION for growth",
+    "button": "Start Free Today",
+    "note": "No credit card needed • Cancel anytime"
+  },
+  "footer": {
+    "description": "Vietnam's Leading AI Marketing Automation Platform",
+    "product": "Product",
+    "features": "Features",
+    "pricing": "Pricing",
+    "howItWorks": "How it Works",
+    "support": "Support",
+    "docs": "Documentation",
+    "api": "API",
+    "contact": "Contact",
+    "company": "Company",
+    "about": "About Us",
+    "blog": "Blog",
+    "careers": "Careers",
+    "copyright": "© 2024 Orion. All rights reserved."
+  }
+}

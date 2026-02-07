@@ -1,0 +1,149 @@
+{
+  "header": {
+    "features": "Tính năng",
+    "howItWorks": "Cách hoạt động",
+    "pricing": "Bảng giá",
+    "login": "Đăng nhập"
+  },
+  "hero": {
+    "badge": "AI Marketing Automation Platform",
+    "title": "Xây dựng thương hiệu và<br />bán hàng tự động với <span class=\"gradient-text\">AI</span>",
+    "subtitle": "ORION giúp bạn tìm kiếm khách hàng tiềm năng, tạo nội dung chuyên nghiệp, và tự động hóa chiến dịch marketing - tất cả bằng sức mạnh AI",
+    "ctaPrimary": "Bắt đầu miễn phí",
+    "ctaSecondary": "Xem Demo",
+    "stats": {
+      "users": "Người dùng",
+      "usersValue": "10K+",
+      "leads": "Lead tìm được",
+      "leadsValue": "1M+",
+      "content": "Nội dung tạo",
+      "contentValue": "5M+"
+    }
+  },
+  "features": {
+    "title": "Tính năng nổi bật",
+    "subtitle": "Một nền tảng hoàn chỉnh để tự động hóa toàn bộ quy trình marketing của bạn",
+    "marketAnalysis": {
+      "title": "Phân tích thị trường thông minh",
+      "description": "Crawl và phân tích dữ liệu từ mạng xã hội, diễn đàn, marketplace để hiểu rõ nhu cầu thị trường và xu hướng.",
+      "item1": "Thu thập dữ liệu tự động",
+      "item2": "Phân tích insight khách hàng",
+      "item3": "Theo dõi đối thủ"
+    },
+    "findLeads": {
+      "title": "Tìm khách hàng tiềm năng",
+      "badge": "Phổ biến nhất",
+      "description": "AI tự động tìm kiếm, chấm điểm và phân loại khách hàng phù hợp với sản phẩm/dịch vụ của bạn.",
+      "item1": "Tìm lead chất lượng cao",
+      "item2": "Chấm điểm tự động",
+      "item3": "Phân loại theo nhóm"
+    },
+    "contentAI": {
+      "title": "Tạo nội dung AI",
+      "description": "Tự động tạo bài viết, video script, email marketing và landing page chuyên nghiệp với AI.",
+      "item1": "Nội dung cá nhân hóa",
+      "item2": "Đa nền tảng",
+      "item3": "Tối ưu SEO"
+    },
+    "outreach": {
+      "title": "Outreach tự động",
+      "description": "Tiếp cận và follow-up khách hàng tự động với tin nhắn được cá nhân hóa bởi AI.",
+      "item1": "Nhắn tin tự động",
+      "item2": "Follow-up thông minh",
+      "item3": "Tránh spam"
+    },
+    "learning": {
+      "title": "Học và tối ưu liên tục",
+      "description": "Hệ thống học từ mỗi tương tác để cải thiện chiến lược và tăng tỷ lệ chuyển đổi.",
+      "item1": "Machine Learning",
+      "item2": "A/B Testing tự động",
+      "item3": "Tối ưu ROI"
+    },
+    "analytics": {
+      "title": "Analytics & Reporting",
+      "description": "Dashboard trực quan với các chỉ số quan trọng để theo dõi hiệu quả chiến dịch.",
+      "item1": "Báo cáo chi tiết",
+      "item2": "Real-time tracking",
+      "item3": "Export dữ liệu"
+    }
+  },
+  "howItWorks": {
+    "title": "Cách hoạt động",
+    "subtitle": "Quy trình tự động 4 bước để đưa doanh nghiệp của bạn lên tầm cao mới",
+    "step1": {
+      "title": "Thu thập dữ liệu",
+      "description": "AI crawl và phân tích dữ liệu từ nhiều nguồn để hiểu thị trường và khách hàng"
+    },
+    "step2": {
+      "title": "Xác định cơ hội",
+      "description": "Tìm và chấm điểm khách hàng tiềm năng, xây dựng chiến lược tiếp cận"
+    },
+    "step3": {
+      "title": "Tạo & triển khai",
+      "description": "AI tạo nội dung và tự động tiếp cận khách hàng với tin nhắn cá nhân hóa"
+    },
+    "step4": {
+      "title": "Học & tối ưu",
+      "description": "Học từ kết quả và liên tục cải thiện để tăng tỷ lệ chuyển đổi"
+    }
+  },
+  "pricing": {
+    "title": "Bảng giá phù hợp với mọi quy mô",
+    "subtitle": "Chọn gói phù hợp với nhu cầu của bạn, nâng cấp bất cứ lúc nào",
+    "starter": {
+      "name": "Starter",
+      "price": "Miễn phí",
+      "feature1": "100 lead/tháng",
+      "feature2": "1 thương hiệu",
+      "feature3": "Tạo nội dung cơ bản",
+      "feature4": "Community support",
+      "button": "Bắt đầu ngay"
+    },
+    "professional": {
+      "name": "Professional",
+      "badge": "Phổ biến nhất",
+      "price": "499K",
+      "period": "/tháng",
+      "feature1": "5,000 lead/tháng",
+      "feature2": "5 thương hiệu",
+      "feature3": "AI content advanced",
+      "feature4": "Auto outreach",
+      "feature5": "Analytics & Reports",
+      "feature6": "Priority support",
+      "button": "Dùng thử 14 ngày"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "Liên hệ",
+      "feature1": "Không giới hạn lead",
+      "feature2": "Không giới hạn thương hiệu",
+      "feature3": "Custom AI model",
+      "feature4": "White-label",
+      "feature5": "Dedicated support",
+      "feature6": "SLA guarantee",
+      "button": "Liên hệ tư vấn"
+    }
+  },
+  "cta": {
+    "title": "Sẵn sàng tăng tốc doanh nghiệp của bạn?",
+    "subtitle": "Tham gia cùng hàng nghìn doanh nghiệp đang sử dụng ORION để phát triển",
+    "button": "Bắt đầu miễn phí ngay hôm nay",
+    "note": "Không cần thẻ tín dụng • Hủy bất cứ lúc nào"
+  },
+  "footer": {
+    "description": "Nền tảng AI Marketing Automation hàng đầu Việt Nam",
+    "product": "Sản phẩm",
+    "features": "Tính năng",
+    "pricing": "Bảng giá",
+    "howItWorks": "Cách hoạt động",
+    "support": "Hỗ trợ",
+    "docs": "Tài liệu",
+    "api": "API",
+    "contact": "Liên hệ",
+    "company": "Công ty",
+    "about": "Về chúng tôi",
+    "blog": "Blog",
+    "careers": "Careers",
+    "copyright": "© 2024 Orion. All rights reserved."
+  }
+}
