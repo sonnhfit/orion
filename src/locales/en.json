@@ -163,6 +163,10 @@
       "have_account": "Already have an account?",
       "login_link": "Login",
       "password_mismatch": "Passwords do not match"
+    },
+    "google": {
+      "continue": "Continue with Google",
+      "divider": "Or"
     }
   },
   "footer": {

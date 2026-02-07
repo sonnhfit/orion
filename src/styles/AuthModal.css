@@ -122,7 +122,7 @@
 
 .submit-button {
   padding: 14px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #89CFF0 0%, #4A9EFF 100%);
   color: white;
   border: none;
   border-radius: 10px;
@@ -135,12 +135,58 @@
 
 .submit-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 20px rgba(74, 158, 255, 0.4);
 }
 
 .submit-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.google-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  color: #999;
+  font-size: 13px;
+}
+
+.google-divider::before,
+.google-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.google-button:hover {
+  border-color: #4A9EFF;
+  background: rgba(74, 158, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.2);
+}
+
+.google-button svg {
+  width: 20px;
+  height: 20px;
 }
 
 .auth-switch {
