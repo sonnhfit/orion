@@ -1,6 +1,6 @@
 ## Mô tả tổng quan
 
-MKT-RUNAGENT là nền tảng AI automation giúp xây dựng thương hiệu và bán hàng bằng cách:
+ORION là nền tảng AI automation giúp xây dựng thương hiệu và bán hàng bằng cách:
 Crawl & phân tích dữ liệu thị trường
 Xác định khách hàng tiềm năng
 Tạo nội dung & chiến lược

@@ -1,84 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/HomePage.css';
 
 export const HomePage: React.FC = () => {
   const { user, logout } = useAuth();
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed(!isSidebarCollapsed);
+  };
 
   return (
     <div className="home-page">
-      <aside className="sidebar">
+      <aside className={`sidebar ${isSidebarCollapsed ? 'collapsed' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
             <span className="logo-icon">⚡</span>
-            <span className="logo-text">MKT-RunAgent</span>
+            {!isSidebarCollapsed && <span className="logo-text">Orion</span>}
+          </div>
+          <button className="collapse-button" onClick={toggleSidebar} title={isSidebarCollapsed ? 'Mở rộng' : 'Thu gọn'}>
+            <span className="collapse-icon">{isSidebarCollapsed ? '→' : '←'}</span>
+          </button>
+        </div>
+
+        <div className="sidebar-content">
+          <button className="create-button">
+            <span className="plus-icon">+</span>
+            {!isSidebarCollapsed && <span>Tạo mới</span>}
+          </button>
+
+          <nav className="sidebar-nav">
+            <a href="#" className="nav-item active" title="Trang chủ">
+              <span className="nav-icon">🏠</span>
+              {!isSidebarCollapsed && <span>Trang chủ</span>}
+            </a>
+            <a href="#" className="nav-item" title="Tạo bằng AI">
+              <span className="nav-icon">✨</span>
+              {!isSidebarCollapsed && <span>Tạo bằng AI</span>}
+            </a>
+          </nav>
+
+          <div className="sidebar-section">
+            {!isSidebarCollapsed && <h3 className="section-title">Công cụ AI</h3>}
+            <a href="#" className="nav-item" title="Thiết kế bằng AI">
+              <span className="nav-icon">🎨</span>
+              {!isSidebarCollapsed && <span>Thiết kế bằng AI</span>}
+            </a>
+            <a href="#" className="nav-item" title="Công cụ tạo video">
+              <span className="nav-icon">🎬</span>
+              {!isSidebarCollapsed && <span>Công cụ tạo video</span>}
+            </a>
+            <a href="#" className="nav-item" title="Giọng nói AI">
+              <span className="nav-icon">🎤</span>
+              {!isSidebarCollapsed && <span>Giọng nói AI</span>}
+            </a>
+            <a href="#" className="nav-item" title="Tất cả công cụ">
+              <span className="nav-icon">⚙️</span>
+              {!isSidebarCollapsed && <span>Tất cả công cụ</span>}
+            </a>
+          </div>
+
+          <div className="sidebar-section">
+            {!isSidebarCollapsed && <h3 className="section-title">Mẫu và dự án</h3>}
+            <a href="#" className="nav-item" title="Mẫu">
+              <span className="nav-icon">📁</span>
+              {!isSidebarCollapsed && <span>Mẫu</span>}
+            </a>
+            <a href="#" className="nav-item" title="Dự án gần đây">
+              <span className="nav-icon">🕐</span>
+              {!isSidebarCollapsed && <span>Dự án gần đây</span>}
+            </a>
+            <a href="#" className="nav-item" title="Chia sẻ và lên lịch">
+              <span className="nav-icon">🔗</span>
+              {!isSidebarCollapsed && <span>Chia sẻ và lên lịch</span>}
+            </a>
           </div>
         </div>
 
-        <button className="create-button">
-          <span className="plus-icon">+</span>
-          Tạo mới
-        </button>
-
-        <nav className="sidebar-nav">
-          <a href="#" className="nav-item active">
-            <span className="nav-icon">🏠</span>
-            Trang chủ
-          </a>
-          <a href="#" className="nav-item">
-            <span className="nav-icon">✨</span>
-            Tạo bằng AI
-          </a>
-        </nav>
-
-        <div className="sidebar-section">
-          <h3 className="section-title">Công cụ AI</h3>
-          <a href="#" className="nav-item">
-            <span className="nav-icon">🎨</span>
-            Thiết kế bằng AI
-          </a>
-          <a href="#" className="nav-item">
-            <span className="nav-icon">🎬</span>
-            Công cụ tạo video
-          </a>
-          <a href="#" className="nav-item">
-            <span className="nav-icon">🎤</span>
-            Giọng nói AI
-          </a>
-          <a href="#" className="nav-item">
-            <span className="nav-icon">⚙️</span>
-            Tất cả công cụ
-          </a>
-        </div>
-
-        <div className="sidebar-section">
-          <h3 className="section-title">Mẫu và dự án</h3>
-          <a href="#" className="nav-item">
-            <span className="nav-icon">📁</span>
-            Mẫu
-          </a>
-          <a href="#" className="nav-item">
-            <span className="nav-icon">🕐</span>
-            Dự án gần đây
-          </a>
-          <a href="#" className="nav-item">
-            <span className="nav-icon">🔗</span>
-            Chia sẻ và lên lịch
-          </a>
-        </div>
-
-        <div className="sidebar-section">
-          <h3 className="section-title">Không gian</h3>
+        <div className="sidebar-footer">
           <div className="user-profile">
             <div className="avatar">{user?.username?.charAt(0).toUpperCase() || 'U'}</div>
-            <div className="user-info">
-              <div className="username">{user?.username || 'User'}</div>
-              <div className="user-status">Không gian mặc định</div>
-            </div>
+            {!isSidebarCollapsed && (
+              <div className="user-info">
+                <div className="username">{user?.username || 'User'}</div>
+                <div className="user-status">Không gian mặc định</div>
+              </div>
+            )}
           </div>
-          <button className="nav-item" onClick={logout}>
+          <button className="nav-item logout-button" onClick={logout} title="Đăng xuất">
             <span className="nav-icon">👥</span>
-            Đăng xuất
+            {!isSidebarCollapsed && <span>Đăng xuất</span>}
           </button>
         </div>
       </aside>

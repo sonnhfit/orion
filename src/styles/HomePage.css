@@ -1,21 +1,38 @@
 .home-page {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background: #f8f9fa;
+  overflow: hidden;
 }
 
+/* Sidebar Styles */
 .sidebar {
   width: 260px;
   background: white;
   border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
-  padding: 20px 16px;
-  overflow-y: auto;
+  transition: width 0.3s ease;
+  position: relative;
+  flex-shrink: 0;
 }
 
+.sidebar.collapsed {
+  width: 72px;
+}
+
+/* Sidebar Header - Fixed at top */
 .sidebar-header {
-  margin-bottom: 20px;
+  padding: 20px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+  background: white;
+  position: relative;
+  z-index: 10;
 }
 
 .sidebar .logo {
@@ -25,10 +42,82 @@
   font-size: 20px;
   font-weight: 700;
   color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .sidebar .logo-icon {
   font-size: 28px;
+  flex-shrink: 0;
+}
+
+.sidebar .logo-text {
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .logo-text {
+  opacity: 0;
+  width: 0;
+}
+
+.collapse-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.collapse-button:hover {
+  background: #f5f5f5;
+  border-color: #4A9EFF;
+}
+
+.collapse-icon {
+  font-size: 16px;
+  color: #666;
+  transition: transform 0.3s ease;
+}
+
+/* Sidebar Content - Scrollable */
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px 16px;
+}
+
+.sidebar-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Sidebar Footer - Fixed at bottom */
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid #e5e7eb;
+  background: white;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
 }
 
 .create-button {
@@ -47,6 +136,7 @@
   gap: 8px;
   margin-bottom: 24px;
   transition: all 0.3s;
+  white-space: nowrap;
 }
 
 .create-button:hover {
@@ -54,9 +144,15 @@
   box-shadow: 0 6px 16px rgba(74, 158, 255, 0.3);
 }
 
+.sidebar.collapsed .create-button {
+  padding: 12px;
+  justify-content: center;
+}
+
 .plus-icon {
   font-size: 20px;
   font-weight: 300;
+  flex-shrink: 0;
 }
 
 .sidebar-nav {
@@ -82,6 +178,13 @@
   border: none;
   width: 100%;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: 10px;
 }
 
 .nav-item:hover {
@@ -97,6 +200,7 @@
 
 .nav-icon {
   font-size: 18px;
+  flex-shrink: 0;
 }
 
 .sidebar-section {
@@ -107,7 +211,7 @@
 
 .sidebar-section:last-child {
   border-bottom: none;
-  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .section-title {
@@ -118,6 +222,15 @@
   letter-spacing: 0.5px;
   margin-bottom: 12px;
   padding: 0 12px;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .section-title {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .user-profile {
@@ -128,6 +241,12 @@
   border-radius: 8px;
   background: #f8f9fa;
   margin-bottom: 8px;
+  transition: all 0.3s;
+}
+
+.sidebar.collapsed .user-profile {
+  justify-content: center;
+  padding: 12px;
 }
 
 .avatar {
@@ -141,11 +260,19 @@
   justify-content: center;
   font-weight: 600;
   font-size: 14px;
+  flex-shrink: 0;
 }
 
 .user-info {
   flex: 1;
   min-width: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .user-info {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
 }
 
 .username {
@@ -160,21 +287,35 @@
 .user-status {
   font-size: 12px;
   color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+.logout-button {
+  margin-top: 4px;
+}
+
+/* Main Content */
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
+/* Content Header - Fixed at top */
 .content-header {
   background: white;
   padding: 16px 32px;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   justify-content: flex-end;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .header-actions {
@@ -225,11 +366,29 @@
   font-size: 14px;
 }
 
+/* Content Body - Scrollable */
 .content-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 40px 60px;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
+}
+
+.content-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content-body::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.content-body::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
 }
 
 .hero-banner {
@@ -261,6 +420,7 @@
   display: flex;
   gap: 16px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .tab-button {
@@ -508,9 +668,14 @@
   color: white;
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
   .sidebar {
     width: 220px;
+  }
+
+  .sidebar.collapsed {
+    width: 72px;
   }
 
   .content-body {
@@ -520,29 +685,67 @@
   .banner-title {
     font-size: 28px;
   }
+
+  .tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
   .home-page {
     flex-direction: column;
+    height: 100vh;
   }
 
   .sidebar {
     width: 100%;
+    max-height: 60vh;
     border-right: none;
     border-bottom: 1px solid #e5e7eb;
+  }
+
+  .sidebar.collapsed {
+    max-height: 70px;
+  }
+
+  .sidebar-content {
+    max-height: calc(60vh - 140px);
   }
 
   .content-body {
     padding: 20px;
   }
 
+  .content-header {
+    padding: 12px 20px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .upgrade-button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .icon-button {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
   .hero-banner {
     padding: 40px 24px;
+    margin-bottom: 40px;
   }
 
   .banner-title {
     font-size: 24px;
+  }
+
+  .banner-subtitle {
+    font-size: 14px;
   }
 
   .tools-grid {
@@ -551,5 +754,38 @@
 
   .templates-grid {
     grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    font-size: 18px;
+  }
+
+  .tools-section,
+  .templates-section {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-body {
+    padding: 16px;
+  }
+
+  .hero-banner {
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .banner-title {
+    font-size: 20px;
+  }
+
+  .tab-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .create-button {
+    font-size: 14px;
   }
 }

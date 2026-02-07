@@ -1,6 +1,6 @@
-# MKT-RunAgent - AI Marketing Automation Platform
+# Orion - AI Marketing Automation Platform
 
-MKT-RunAgent là nền tảng AI automation giúp xây dựng thương hiệu và bán hàng tự động.
+Orion là nền tảng AI automation giúp xây dựng thương hiệu và bán hàng tự động.
 
 ## 🚀 Tính năng
 
@@ -252,8 +252,8 @@ Output: `dist/` folder
 
 ## 👥 Team
 
-MKT-RunAgent Team
+Orion Team
 
 ## 📄 License
 
-All rights reserved © 2024 MKT-RunAgent
+All rights reserved © 2024 Orion

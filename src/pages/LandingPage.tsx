@@ -21,7 +21,7 @@ export const LandingPage: React.FC = () => {
         <div className="header-content">
           <div className="logo">
             <span className="logo-icon">⚡</span>
-            <span className="logo-text">MKT-RunAgent</span>
+            <span className="logo-text">Orion</span>
           </div>
           <button className="login-button" onClick={() => setIsModalOpen(true)}>
             Đăng nhập
@@ -91,7 +91,7 @@ export const LandingPage: React.FC = () => {
       </main>
 
       <footer className="landing-footer">
-        <p>© 2024 MKT-RunAgent. All rights reserved.</p>
+        <p>© 2024 Orion. All rights reserved.</p>
       </footer>
 
       <AuthModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
