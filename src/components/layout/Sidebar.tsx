@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import {
   IoFlashSharp,
@@ -35,11 +36,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onCloseMobile
 }) => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    // Reload home page for logged-in users
+    window.location.href = '/home';
+  };
 
   return (
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''} ${isMobile && isMobileOpen ? 'mobile-open' : ''}`}>
       <div className="sidebar-header">
-        <div className="logo">
+        <div className="logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
           <IoFlashSharp className="logo-icon" />
           {!isCollapsed && <span className="logo-text">ORION</span>}
         </div>

@@ -28,11 +28,17 @@ export const LandingPage: React.FC = () => {
     }
   }, [isAuthenticated, navigate]);
 
+  const handleLogoClick = () => {
+    // Reload landing page
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-content">
-          <div className="logo">
+          <div className="logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
             <IoRocketSharp className="logo-icon" />
             <span className="logo-text">ORION</span>
           </div>
@@ -333,7 +339,7 @@ export const LandingPage: React.FC = () => {
       <footer className="landing-footer">
         <div className="footer-content">
           <div className="footer-section">
-            <div className="footer-logo">
+            <div className="footer-logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
               <IoRocketSharp className="logo-icon" />
               <span className="logo-text">ORION</span>
             </div>
