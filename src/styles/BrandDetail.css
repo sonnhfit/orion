@@ -3,6 +3,7 @@
   padding: 20px;
   max-width: 1000px;
   margin: 0 auto;
+  background: #f8f9fa;
 }
 
 @media (min-width: 768px) {
@@ -187,23 +188,24 @@
 
 /* Section */
 .section {
-  background: #fff;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   padding: 0;
   transition: all 0.2s ease;
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 640px) {
   .section {
-    border-radius: 6px;
+    border-radius: 8px;
   }
 }
 
 .section:hover {
-  border-color: #9ca3af;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.08);
 }
 
 /* Accordion Section */
@@ -213,9 +215,9 @@
 
 .accordion-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  padding: 14px 18px;
+  padding: 16px 20px;
   cursor: pointer;
   background: #fff;
   border: none;
@@ -226,7 +228,7 @@
 }
 
 .accordion-header:hover {
-  background: #f9fafb;
+  background: #f0f7ff;
 }
 
 .accordion-status {
@@ -292,9 +294,9 @@
 
 .accordion-body {
   display: none;
-  padding: 18px;
-  border-top: 1px solid #d1d5db;
-  background: #fafbfc;
+  padding: 20px;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
 }
 
 .accordion-body.expanded {
@@ -510,24 +512,27 @@
 }
 
 input.color-value {
-
-
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fff;
+  transition: all 0.15s ease;
+  color: #111827;
 }
 
 input.color-value:hover {
-  border-bottom-color: #9ca3af !important;
-  background: transparent !important;
+  border-color: #9ca3af;
+  background: #f9fafb;
 }
 
 input.color-value:focus {
-  outline: none !important;
-  border-bottom-color: #2563eb !important;
-  box-shadow: 0 2px 0 0 #2563eb !important;
-  background: transparent !important;
-}
-
-input.color-value:active {
-  box-shadow: 0 2px 0 0 #2563eb !important;
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08);
+  background: #fff;
 }
 
 /* Checkbox Field */
@@ -608,16 +613,16 @@ input.color-value:active {
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: #4A9EFF;
   color: white;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: #1d4ed8;
+  background: #3b82f6;
 }
 
 .btn-primary:active:not(:disabled) {
-  background: #1e40af;
+  background: #2563eb;
 }
 
 .btn-primary.btn-large {
@@ -658,7 +663,7 @@ input.color-value:active {
 .btn-edit,
 .btn-add {
   padding: 8px 16px;
-  background: #2563eb;
+  background: #4A9EFF;
   color: white;
   border: none;
   border-radius: 6px;
@@ -676,7 +681,7 @@ input.color-value:active {
 
 .btn-edit:hover,
 .btn-add:hover {
-  background: #1d4ed8;
+  background: #3b82f6;
 }
 
 .btn-primary:disabled,
@@ -708,8 +713,9 @@ input.color-value:active {
   gap: 16px;
   align-items: start;
   padding: 12px;
-  background: #f9fafb;
+  background: #ffffff;
   border-radius: 6px;
+  border: 1px solid #e5e7eb;
 }
 
 @media (max-width: 640px) {
@@ -766,8 +772,8 @@ input.color-value:active {
 }
 
 .account-card {
-  background: #fafbfc;
-  border: 1px solid #e6e8eb;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 14px;
   display: flex;
@@ -777,9 +783,9 @@ input.color-value:active {
 }
 
 .account-card:hover {
-  border-color: #007bff;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.12);
+  border-color: #4A9EFF;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.08);
 }
 
 .account-header {
@@ -856,7 +862,7 @@ input.color-value:active {
 }
 
 .accounts-table thead {
-  background: #f9fafb;
+  background: #ffffff;
 }
 
 .accounts-table thead th {
@@ -876,7 +882,7 @@ input.color-value:active {
 }
 
 .accounts-table tbody tr:hover {
-  background: #fafbfc;
+  background: #f8fafc;
 }
 
 .accounts-table tbody td {
@@ -919,10 +925,11 @@ input.color-value:active {
 .webhook-fields {
   color: #6b7280;
   padding: 6px 10px;
-  background: #f9fafb;
+  background: #ffffff;
   border-radius: 4px;
   display: inline-block;
   font-size: 12px;
+  border: 1px solid #e5e7eb;
 }
 
 .table-actions {

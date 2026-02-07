@@ -7,9 +7,6 @@ import {
   IoVideocam,
   IoMic,
   IoSettings,
-  IoFolder,
-  IoTime,
-  IoLink,
   IoPeople,
   IoChevronBack,
   IoChevronForward,
@@ -103,21 +100,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </a>
         </div>
 
-        <div className="sidebar-section">
-          {!isCollapsed && <h3 className="section-title">Mẫu và dự án</h3>}
-          <a href="#" className="nav-item" title="Mẫu">
-            <IoFolder className="nav-icon" />
-            {!isCollapsed && <span>Mẫu</span>}
-          </a>
-          <a href="#" className="nav-item" title="Dự án gần đây">
-            <IoTime className="nav-icon" />
-            {!isCollapsed && <span>Dự án gần đây</span>}
-          </a>
-          <a href="#" className="nav-item" title="Chia sẻ và lên lịch">
-            <IoLink className="nav-icon" />
-            {!isCollapsed && <span>Chia sẻ và lên lịch</span>}
-          </a>
-        </div>
       </div>
 
       <div className="sidebar-footer">
