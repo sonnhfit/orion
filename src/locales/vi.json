@@ -240,7 +240,9 @@
       "actions": "Hành động",
       "edit": "Chỉnh sửa",
       "active": "Hoạt động",
-      "inactive": "Không hoạt động"
+      "inactive": "Không hoạt động",
+      "section_data_sources": "Nguồn dữ liệu crawl",
+      "manage_data_sources": "Cấu hình các nguồn dữ liệu mà AI sẽ crawl để phân tích thị trường"
     }
   },
   "common": {

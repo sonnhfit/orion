@@ -14,7 +14,8 @@ import {
   IoChevronBack,
   IoChevronForward,
   IoClose,
-  IoBrushSharp
+  IoBrushSharp,
+  IoGlobe
 } from 'react-icons/io5';
 import { CreateMenu } from '../CreateMenu';
 import '../../styles/layout/Sidebar.css';
@@ -70,6 +71,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <Link to="/brand-kit" className="nav-item" title="BrandKit">
             <IoBrushSharp className="nav-icon" />
             {!isCollapsed && <span>BrandKit</span>}
+          </Link>
+          <Link to="/data-sources" className="nav-item" title="Nguồn dữ liệu">
+            <IoGlobe className="nav-icon" />
+            {!isCollapsed && <span>Nguồn dữ liệu</span>}
           </Link>
         </div>
 

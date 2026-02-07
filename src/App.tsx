@@ -5,6 +5,7 @@ import { RootRedirect } from './components/RootRedirect';
 import { HomePage } from './pages/HomePage';
 import { BrandKitPage } from './pages/BrandKitPage';
 import { BrandDetailPage } from './pages/BrandDetailPage';
+import { DataSourcesPage } from './pages/DataSourcesPage';
 import './App.css';
 
 function App() {
@@ -34,6 +35,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <BrandDetailPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/data-sources"
+            element={
+              <ProtectedRoute>
+                <DataSourcesPage />
               </ProtectedRoute>
             }
           />

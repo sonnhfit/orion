@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import { IoArrowBack, IoAdd, IoClose, IoChevronDown, IoColorFill, IoDocument, IoSettings } from 'react-icons/io5';
+import { IoArrowBack, IoAdd, IoClose, IoChevronDown, IoColorFill, IoDocument, IoSettings, IoGlobe } from 'react-icons/io5';
 import { MdCheckCircle } from 'react-icons/md';
 import { apiService } from '../services/api';
 import type { Brand, BrandSettings } from '../types/brand';
 import { LoadingSpinner } from './LoadingSpinner';
+import { BrandDataSources } from './BrandDataSources';
 import '../styles/BrandDetail.css';
 
 export const BrandDetail: React.FC = () => {
@@ -356,6 +357,31 @@ export const BrandDetail: React.FC = () => {
           )}
         </div>
 
+        {/* Data Sources Accordion */}
+        <div className="section accordion-section">
+          <button 
+            className={`accordion-header ${expandedSections['dataSources'] ? 'expanded' : ''}`}
+            onClick={() => toggleSection('dataSources')}
+          >
+            <div className="accordion-status">
+              <IoGlobe />
+            </div>
+            <div className="accordion-content-main">
+              <h3 className="accordion-title">3. {t('brands.detail.section_data_sources') || 'Data Sources'}</h3>
+              <p className="accordion-desc">{t('brands.detail.manage_data_sources') || 'Configure data sources for crawling'}</p>
+            </div>
+            <div className="accordion-chevron">
+              <IoChevronDown />
+            </div>
+          </button>
+
+          {expandedSections['dataSources'] && (
+            <div className="accordion-body expanded">
+              <BrandDataSources brandId={brand.id} brandName={brand.name} />
+            </div>
+          )}
+        </div>
+
         {/* Settings Accordion */}
         <div className="section accordion-section">
           <button 
@@ -366,7 +392,7 @@ export const BrandDetail: React.FC = () => {
               <IoSettings />
             </div>
             <div className="accordion-content-main">
-              <h3 className="accordion-title">3. {t('brands.detail.section_settings')}</h3>
+              <h3 className="accordion-title">4. {t('brands.detail.section_settings')}</h3>
               <p className="accordion-desc">{t('brands.detail.manage_settings')}</p>
             </div>
             <div className="accordion-chevron">

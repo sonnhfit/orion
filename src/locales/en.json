@@ -239,7 +239,9 @@
       "actions": "Actions",
       "edit": "Edit",
       "active": "Active",
-      "inactive": "Inactive"
+      "inactive": "Inactive",
+      "section_data_sources": "Data Sources",
+      "manage_data_sources": "Configure data sources that AI will crawl to analyze market and find potential customers"
     }
   },
   "common": {
