@@ -1,41 +1,107 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/HomePage.css';
+import { 
+  IoFlashSharp, 
+  IoHomeSharp, 
+  IoSparkles, 
+  IoBrush, 
+  IoVideocam,
+  IoMic,
+  IoSettings,
+  IoFolder,
+  IoTime,
+  IoLink,
+  IoPeople,
+  IoChevronBack,
+  IoChevronForward,
+  IoAdd,
+  IoChatbubble,
+  IoNotifications,
+  IoHelpCircle,
+  IoPlay,
+  IoFilm,
+  IoImage,
+  IoBulb,
+  IoRadio,
+  IoBook,
+  IoTv,
+  IoMenu,
+  IoClose
+} from 'react-icons/io5';
+import { HiCube } from 'react-icons/hi2';
 
 export const HomePage: React.FC = () => {
   const { user, logout } = useAuth();
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (!mobile) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const toggleSidebar = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <div className="home-page">
-      <aside className={`sidebar ${isSidebarCollapsed ? 'collapsed' : ''}`}>
+      {/* Mobile Menu Overlay */}
+      {isMobile && isMobileMenuOpen && (
+        <div className="mobile-overlay" onClick={closeMobileMenu}></div>
+      )}
+
+      <aside className={`sidebar ${isSidebarCollapsed ? 'collapsed' : ''} ${isMobile && isMobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
-            <span className="logo-icon">⚡</span>
-            {!isSidebarCollapsed && <span className="logo-text">Orion</span>}
+            <IoFlashSharp className="logo-icon" />
+            {!isSidebarCollapsed && <span className="logo-text">ORION</span>}
           </div>
-          <button className="collapse-button" onClick={toggleSidebar} title={isSidebarCollapsed ? 'Mở rộng' : 'Thu gọn'}>
-            <span className="collapse-icon">{isSidebarCollapsed ? '→' : '←'}</span>
-          </button>
+          <div className="sidebar-header-actions">
+            {isMobile && (
+              <button className="mobile-close-button" onClick={closeMobileMenu} title="Đóng">
+                <IoClose />
+              </button>
+            )}
+            {!isMobile && (
+              <button className="collapse-button" onClick={toggleSidebar} title={isSidebarCollapsed ? 'Mở rộng' : 'Thu gọn'}>
+                {isSidebarCollapsed ? <IoChevronForward className="collapse-icon" /> : <IoChevronBack className="collapse-icon" />}
+              </button>
+            )}
+          </div>
         </div>
 
         <div className="sidebar-content">
           <button className="create-button">
-            <span className="plus-icon">+</span>
+            <IoAdd className="plus-icon" />
             {!isSidebarCollapsed && <span>Tạo mới</span>}
           </button>
 
           <nav className="sidebar-nav">
             <a href="#" className="nav-item active" title="Trang chủ">
-              <span className="nav-icon">🏠</span>
+              <IoHomeSharp className="nav-icon" />
               {!isSidebarCollapsed && <span>Trang chủ</span>}
             </a>
             <a href="#" className="nav-item" title="Tạo bằng AI">
-              <span className="nav-icon">✨</span>
+              <IoSparkles className="nav-icon" />
               {!isSidebarCollapsed && <span>Tạo bằng AI</span>}
             </a>
           </nav>
@@ -43,19 +109,19 @@ export const HomePage: React.FC = () => {
           <div className="sidebar-section">
             {!isSidebarCollapsed && <h3 className="section-title">Công cụ AI</h3>}
             <a href="#" className="nav-item" title="Thiết kế bằng AI">
-              <span className="nav-icon">🎨</span>
+              <IoBrush className="nav-icon" />
               {!isSidebarCollapsed && <span>Thiết kế bằng AI</span>}
             </a>
             <a href="#" className="nav-item" title="Công cụ tạo video">
-              <span className="nav-icon">🎬</span>
+              <IoVideocam className="nav-icon" />
               {!isSidebarCollapsed && <span>Công cụ tạo video</span>}
             </a>
             <a href="#" className="nav-item" title="Giọng nói AI">
-              <span className="nav-icon">🎤</span>
+              <IoMic className="nav-icon" />
               {!isSidebarCollapsed && <span>Giọng nói AI</span>}
             </a>
             <a href="#" className="nav-item" title="Tất cả công cụ">
-              <span className="nav-icon">⚙️</span>
+              <IoSettings className="nav-icon" />
               {!isSidebarCollapsed && <span>Tất cả công cụ</span>}
             </a>
           </div>
@@ -63,15 +129,15 @@ export const HomePage: React.FC = () => {
           <div className="sidebar-section">
             {!isSidebarCollapsed && <h3 className="section-title">Mẫu và dự án</h3>}
             <a href="#" className="nav-item" title="Mẫu">
-              <span className="nav-icon">📁</span>
+              <IoFolder className="nav-icon" />
               {!isSidebarCollapsed && <span>Mẫu</span>}
             </a>
             <a href="#" className="nav-item" title="Dự án gần đây">
-              <span className="nav-icon">🕐</span>
+              <IoTime className="nav-icon" />
               {!isSidebarCollapsed && <span>Dự án gần đây</span>}
             </a>
             <a href="#" className="nav-item" title="Chia sẻ và lên lịch">
-              <span className="nav-icon">🔗</span>
+              <IoLink className="nav-icon" />
               {!isSidebarCollapsed && <span>Chia sẻ và lên lịch</span>}
             </a>
           </div>
@@ -88,7 +154,7 @@ export const HomePage: React.FC = () => {
             )}
           </div>
           <button className="nav-item logout-button" onClick={logout} title="Đăng xuất">
-            <span className="nav-icon">👥</span>
+            <IoPeople className="nav-icon" />
             {!isSidebarCollapsed && <span>Đăng xuất</span>}
           </button>
         </div>
@@ -96,12 +162,17 @@ export const HomePage: React.FC = () => {
 
       <main className="main-content">
         <header className="content-header">
+          {isMobile && (
+            <button className="hamburger-button" onClick={toggleMobileMenu} title="Menu">
+              <IoMenu />
+            </button>
+          )}
           <div className="header-actions">
             <button className="upgrade-button">Nâng cấp</button>
-            <button className="icon-button">💬</button>
-            <button className="icon-button">📦</button>
-            <button className="icon-button">🔔</button>
-            <button className="icon-button">❓</button>
+            <button className="icon-button mobile-hidden"><IoChatbubble /></button>
+            <button className="icon-button mobile-hidden"><HiCube /></button>
+            <button className="icon-button"><IoNotifications /></button>
+            <button className="icon-button mobile-hidden"><IoHelpCircle /></button>
             <button className="icon-button avatar-button">
               {user?.username?.charAt(0).toUpperCase() || 'U'}
             </button>
@@ -116,11 +187,11 @@ export const HomePage: React.FC = () => {
             </p>
             <div className="content-tabs">
               <button className="tab-button active">
-                <span className="tab-icon">🎬</span>
+                <IoFilm className="tab-icon" />
                 Video
               </button>
               <button className="tab-button">
-                <span className="tab-icon">🖼️</span>
+                <IoImage className="tab-icon" />
                 Hình ảnh
               </button>
             </div>
@@ -131,15 +202,15 @@ export const HomePage: React.FC = () => {
             <div className="tools-grid">
               <div className="tool-card">
                 <div className="tool-image">
-                  <div className="placeholder-image">📹</div>
-                  <button className="add-button">+</button>
+                  <div className="placeholder-image"><IoVideocam /></div>
+                  <button className="add-button"><IoAdd /></button>
                 </div>
                 <h3 className="tool-title">Video mới</h3>
               </div>
 
               <div className="tool-card">
                 <div className="tool-image">
-                  <div className="placeholder-image">🎥</div>
+                  <div className="placeholder-image"><IoFilm /></div>
                 </div>
                 <h3 className="tool-title">Công cụ tạo video bằng AI</h3>
                 <span className="badge">Mới</span>
@@ -147,7 +218,7 @@ export const HomePage: React.FC = () => {
 
               <div className="tool-card">
                 <div className="tool-image">
-                  <div className="placeholder-image">🎨</div>
+                  <div className="placeholder-image"><IoBrush /></div>
                 </div>
                 <h3 className="tool-title">Phụ đề bằng AI</h3>
                 <span className="badge">Mới</span>
@@ -155,7 +226,7 @@ export const HomePage: React.FC = () => {
 
               <div className="tool-card">
                 <div className="tool-image">
-                  <div className="placeholder-image">💡</div>
+                  <div className="placeholder-image"><IoBulb /></div>
                 </div>
                 <h3 className="tool-title">Lên ý tưởng cùng AI</h3>
                 <span className="badge">Mới</span>
@@ -168,27 +239,27 @@ export const HomePage: React.FC = () => {
             <div className="templates-grid">
               <div className="template-card">
                 <div className="template-image podcast">
-                  <span className="template-icon">🎙️</span>
-                  <span className="template-label">📻 Podcast</span>
-                  <button className="play-button">▶</button>
+                  <IoMic className="template-icon" />
+                  <span className="template-label"><IoRadio /> Podcast</span>
+                  <button className="play-button"><IoPlay /></button>
                   <span className="template-status">Dùng thử ngay</span>
                 </div>
               </div>
 
               <div className="template-card">
                 <div className="template-image story">
-                  <span className="template-icon">🐱</span>
-                  <span className="template-label">📖 Story</span>
-                  <button className="play-button">▶</button>
+                  <IoBook className="template-icon" />
+                  <span className="template-label"><IoBook /> Story</span>
+                  <button className="play-button"><IoPlay /></button>
                   <span className="template-status">Dùng thử ngay</span>
                 </div>
               </div>
 
               <div className="template-card">
                 <div className="template-image advertisement">
-                  <span className="template-icon">☕</span>
-                  <span className="template-label">📺 Advertisement</span>
-                  <button className="play-button">▶</button>
+                  <IoTv className="template-icon" />
+                  <span className="template-label"><IoTv /> Advertisement</span>
+                  <button className="play-button"><IoPlay /></button>
                   <span className="template-status">Dùng thử ngay</span>
                 </div>
               </div>
