@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import { IoArrowBack, IoAdd, IoClose, IoCheckmarkCircle, IoChevronDown, IoColorFill, IoDocument, IoSettings } from 'react-icons/io5';
+import { IoArrowBack, IoAdd, IoClose, IoChevronDown, IoColorFill, IoDocument, IoSettings } from 'react-icons/io5';
 import { MdCheckCircle } from 'react-icons/md';
 import { apiService } from '../services/api';
-import type { Brand, BrandSettings, SocialAccount } from '../types/brand';
+import type { Brand, BrandSettings } from '../types/brand';
 import { LoadingSpinner } from './LoadingSpinner';
 import '../styles/BrandDetail.css';
 
@@ -131,18 +131,6 @@ export const BrandDetail: React.FC = () => {
     }));
   };
 
-  const handleColorChange = (field: keyof typeof settingsData, value: string) => {
-    // Validate hex color format
-    const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
-    if (value.match(hexRegex) || value === '') {
-      handleSettingsChange(field, value);
-    }
-  };
-
-  const isValidHexColor = (color: string): boolean => {
-    const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
-    return hexRegex.test(color);
-  };
 
   const toggleSection = (sectionKey: string) => {
     setExpandedSections(prev => ({
