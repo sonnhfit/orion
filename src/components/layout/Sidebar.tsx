@@ -14,9 +14,9 @@ import {
   IoPeople,
   IoChevronBack,
   IoChevronForward,
-  IoAdd,
   IoClose
 } from 'react-icons/io5';
+import { CreateMenu } from '../CreateMenu';
 import '../../styles/layout/Sidebar.css';
 
 interface SidebarProps {
@@ -63,10 +63,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       <div className="sidebar-content">
-        <button className="create-button">
-          <IoAdd className="plus-icon" />
-          {!isCollapsed && <span>Tạo mới</span>}
-        </button>
+        <CreateMenu isCollapsed={isCollapsed} />
 
         <nav className="sidebar-nav">
           <a href="#" className="nav-item active" title="Trang chủ">
