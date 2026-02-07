@@ -238,7 +238,9 @@
       "page_name": "Tên trang",
       "webhook_fields": "Các trường Webhook",
       "actions": "Hành động",
-      "edit": "Chỉnh sửa"
+      "edit": "Chỉnh sửa",
+      "active": "Hoạt động",
+      "inactive": "Không hoạt động"
     }
   },
   "common": {

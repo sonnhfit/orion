@@ -237,7 +237,9 @@
       "page_name": "Page Name",
       "webhook_fields": "Webhook Fields",
       "actions": "Actions",
-      "edit": "Edit"
+      "edit": "Edit",
+      "active": "Active",
+      "inactive": "Inactive"
     }
   },
   "common": {
