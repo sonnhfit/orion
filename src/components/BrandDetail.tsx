@@ -22,9 +22,10 @@ export const BrandDetail: React.FC = () => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [expandedSections, setExpandedSections] = useState<{ [key: string]: boolean }>({
-    info: true,
-    social: true,
-    settings: true,
+    info: false,
+    social: false,
+    dataSources: false,
+    settings: false,
   });
   
   const [formData, setFormData] = useState({
