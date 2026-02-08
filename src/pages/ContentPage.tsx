@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { MainLayout } from '../components/layout/MainLayout';
 import { ContentConfig } from '../components/ContentConfig';
-import { IoSettings, IoClose, IoHeart, IoHeartOutline, IoChatbubbleOutline, IoShareSocialOutline, IoCalendarOutline } from 'react-icons/io5';
+import { IoClose, IoHeart, IoHeartOutline, IoChatbubbleOutline, IoShareSocialOutline, IoCalendarOutline } from 'react-icons/io5';
 import type { ContentItem, SocialMediaChannel } from '../types/content';
 import '../styles/ContentPage.css';
 
 export const ContentPage: React.FC = () => {
   const [selectedContent, setSelectedContent] = useState<ContentItem | null>(null);
   const [showConfig, setShowConfig] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
   const [likedContent, setLikedContent] = useState<Set<string>>(new Set());
   const [approvedContent, setApprovedContent] = useState<Set<string>>(new Set());
   const [channels, setChannels] = useState<SocialMediaChannel[]>([
@@ -308,7 +307,7 @@ export const ContentPage: React.FC = () => {
                   postsPerWeek={postsPerWeek}
                   onUpdateChannels={handleUpdateChannels}
                   onUpdatePostsPerWeek={handleUpdatePostsPerWeek}
-                  isSaving={isSaving}
+                  isSaving={false}
                 />
               </div>
             </div>
