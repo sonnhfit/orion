@@ -51,11 +51,14 @@ export const ContentPage: React.FC = () => {
         approval_status: 'pending',
         ordering: '-created_at'
       });
-      setContents(response.results);
+      
+      // Handle both paginated response (with results field) and direct array response
+      const contentsData = response.results || response;
+      setContents(Array.isArray(contentsData) ? contentsData : []);
       
       // Auto-select first content if none selected
-      if (!selectedContent && response.results.length > 0) {
-        setSelectedContent(response.results[0]);
+      if (!selectedContent && Array.isArray(contentsData) && contentsData.length > 0) {
+        setSelectedContent(contentsData[0]);
       }
     } catch (err) {
       setError('Không thể tải danh sách nội dung. Vui lòng thử lại.');

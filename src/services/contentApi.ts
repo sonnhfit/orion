@@ -201,38 +201,38 @@ class ContentApiService {
     page?: number;
     page_size?: number;
   }): Promise<ContentListResponse> {
-    const response = await this.api.get<ContentListResponse>('/api/v1/content/contents/', { params });
+    const response = await this.api.get<ContentListResponse>('/api/v1/content/', { params });
     return response.data;
   }
 
   async getContent(id: number): Promise<ContentItem> {
-    const response = await this.api.get<ContentItem>(`/api/v1/content/contents/${id}/`);
+    const response = await this.api.get<ContentItem>(`/api/v1/content/${id}/`);
     return response.data;
   }
 
   async createContent(data: CreateContentData): Promise<ContentItem> {
-    const response = await this.api.post<ContentItem>('/api/v1/content/contents/', data);
+    const response = await this.api.post<ContentItem>('/api/v1/content/', data);
     return response.data;
   }
 
   async updateContent(id: number, data: UpdateContentData): Promise<ContentItem> {
-    const response = await this.api.put<ContentItem>(`/api/v1/content/contents/${id}/`, data);
+    const response = await this.api.put<ContentItem>(`/api/v1/content/${id}/`, data);
     return response.data;
   }
 
   async patchContent(id: number, data: UpdateContentData): Promise<ContentItem> {
-    const response = await this.api.patch<ContentItem>(`/api/v1/content/contents/${id}/`, data);
+    const response = await this.api.patch<ContentItem>(`/api/v1/content/${id}/`, data);
     return response.data;
   }
 
   async deleteContent(id: number): Promise<void> {
-    await this.api.delete(`/api/v1/content/contents/${id}/`);
+    await this.api.delete(`/api/v1/content/${id}/`);
   }
 
   // Approval workflow endpoints
   async approveContent(id: number, data?: ApprovalActionData): Promise<{ status: string; content: ContentItem }> {
     const response = await this.api.post<{ status: string; content: ContentItem }>(
-      `/api/v1/content/contents/${id}/approve/`,
+      `/api/v1/content/${id}/approve/`,
       data
     );
     return response.data;
@@ -240,7 +240,7 @@ class ContentApiService {
 
   async rejectContent(id: number, data?: ApprovalActionData): Promise<{ status: string; content: ContentItem }> {
     const response = await this.api.post<{ status: string; content: ContentItem }>(
-      `/api/v1/content/contents/${id}/reject/`,
+      `/api/v1/content/${id}/reject/`,
       data
     );
     return response.data;
@@ -248,7 +248,7 @@ class ContentApiService {
 
   async requestChanges(id: number, data?: ApprovalActionData): Promise<{ status: string; content: ContentItem }> {
     const response = await this.api.post<{ status: string; content: ContentItem }>(
-      `/api/v1/content/contents/${id}/request_changes/`,
+      `/api/v1/content/${id}/request_changes/`,
       data
     );
     return response.data;
@@ -256,7 +256,7 @@ class ContentApiService {
 
   async submitContent(id: number, data: SubmitContentData): Promise<{ status: string; submissions: ContentSubmission[] }> {
     const response = await this.api.post<{ status: string; submissions: ContentSubmission[] }>(
-      `/api/v1/content/contents/${id}/submit/`,
+      `/api/v1/content/${id}/submit/`,
       data
     );
     return response.data;
@@ -264,33 +264,33 @@ class ContentApiService {
 
   // Special content endpoints
   async getPendingApproval(): Promise<ContentListResponse> {
-    const response = await this.api.get<ContentListResponse>('/api/v1/content/contents/pending_approval/');
+    const response = await this.api.get<ContentListResponse>('/api/v1/content/pending_approval/');
     return response.data;
   }
 
   async getApprovedContent(): Promise<ContentListResponse> {
-    const response = await this.api.get<ContentListResponse>('/api/v1/content/contents/approved_content/');
+    const response = await this.api.get<ContentListResponse>('/api/v1/content/approved_content/');
     return response.data;
   }
 
   async getScheduledForToday(): Promise<ContentSchedule[]> {
-    const response = await this.api.get<ContentSchedule[]>('/api/v1/content/contents/scheduled_for_today/');
+    const response = await this.api.get<ContentSchedule[]>('/api/v1/content/scheduled_for_today/');
     return response.data;
   }
 
   // Content detail endpoints
   async getApprovalHistory(id: number): Promise<ContentApprovalLog[]> {
-    const response = await this.api.get<ContentApprovalLog[]>(`/api/v1/content/contents/${id}/approval_history/`);
+    const response = await this.api.get<ContentApprovalLog[]>(`/api/v1/content/${id}/approval_history/`);
     return response.data;
   }
 
   async getSubmissionStatus(id: number): Promise<ContentSubmission[]> {
-    const response = await this.api.get<ContentSubmission[]>(`/api/v1/content/contents/${id}/submission_status/`);
+    const response = await this.api.get<ContentSubmission[]>(`/api/v1/content/${id}/submission_status/`);
     return response.data;
   }
 
   async getScheduledPosts(id: number): Promise<ContentSchedule[]> {
-    const response = await this.api.get<ContentSchedule[]>(`/api/v1/content/contents/${id}/scheduled_posts/`);
+    const response = await this.api.get<ContentSchedule[]>(`/api/v1/content/${id}/scheduled_posts/`);
     return response.data;
   }
 
