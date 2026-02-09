@@ -14,6 +14,16 @@ export interface ContentItem {
   likes?: number;
   comments?: number;
   shares?: number;
+  contentMetadata?: Record<string, any>;
+  approvalStatus?: 'pending' | 'approved' | 'rejected' | 'changes_requested';
+  isApproved?: boolean;
+  approvedAt?: string;
+  approvedBy?: string;
+  isPublished?: boolean;
+  isActive?: boolean;
+  tags?: string;
+  hashtags?: string;
+  slug?: string;
 }
 
 export interface SocialMediaChannel {

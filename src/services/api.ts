@@ -12,7 +12,7 @@ import type {
   DataSourceListResponse 
 } from '../types/brand';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://orionai.runagent.io';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://orionai.runagent.io';
 
 
 export interface CrawledContent {
