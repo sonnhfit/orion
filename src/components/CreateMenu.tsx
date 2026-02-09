@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   IoAdd,
   IoBusinessSharp,
@@ -14,7 +15,10 @@ interface CreateMenuProps {
   isCollapsed?: boolean;
 }
 
-export const CreateMenu: React.FC<CreateMenuProps> = ({ isCollapsed = false }) => {
+export const CreateMenu: React.FC<CreateMenuProps> = ({ 
+  isCollapsed = false
+}) => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
   const menuRef = useRef<HTMLDivElement>(null);
@@ -53,31 +57,41 @@ export const CreateMenu: React.FC<CreateMenuProps> = ({ isCollapsed = false }) =
       id: 'brand',
       label: 'Thêm thương hiệu mới',
       icon: IoBusinessSharp,
-      description: 'Tạo một thương hiệu mới'
+      description: 'Tạo một thương hiệu mới',
+      action: () => navigate('/brand-kit')
     },
     {
       id: 'video',
       label: 'Tạo video mới',
       icon: IoVideocam,
-      description: 'Tạo video từ đầu'
+      description: 'Tạo video từ đầu',
+      action: () => console.log('Video creation not implemented yet')
     },
     {
       id: 'image',
       label: 'Tạo hình ảnh mới',
       icon: IoImage,
-      description: 'Tạo hình ảnh bằng AI'
+      description: 'Tạo hình ảnh bằng AI',
+      action: () => console.log('Image creation not implemented yet')
     },
     {
       id: 'source',
       label: 'Thêm nguồn crawl',
       icon: IoLink,
-      description: 'Thêm nguồn dữ liệu mới'
+      description: 'Thêm nguồn dữ liệu mới',
+      action: () => console.log('Data source creation not implemented yet')
     }
   ];
 
   const handleMenuItemClick = (id: string) => {
     console.log('Creating:', id);
-    // TODO: Implement actual functionality for each menu item
+    
+    // Find the menu item and execute its action
+    const menuItem = menuItems.find(item => item.id === id);
+    if (menuItem && menuItem.action) {
+      menuItem.action();
+    }
+    
     setIsOpen(false);
   };
 
