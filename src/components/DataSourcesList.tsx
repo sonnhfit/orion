@@ -10,11 +10,13 @@ import {
   IoClose,
   IoPlay,
   IoWarning,
-  IoGlobe
+  IoGlobe,
+  IoEye
 } from 'react-icons/io5';
 import { apiService } from '../services/api';
 import type { DataSource, CreateDataSourceData, Brand } from '../types/brand';
 import { LoadingSpinner } from './LoadingSpinner';
+import { CrawlHistory } from './CrawlHistory';
 import '../styles/DataSourcesList.css';
 
 interface DataSourceFormData {
@@ -44,6 +46,11 @@ export const DataSourcesList: React.FC = () => {
     notes: ''
   });
   const [brands, setBrands] = useState<Brand[]>([]);
+  const [viewingCrawlHistory, setViewingCrawlHistory] = useState<{
+    sourceId: number;
+    sourceUrl?: string;
+    sourceName: string;
+  } | null>(null);
 
   const platformTypes = [
     { value: 'social_media', label: i18n.language === 'vi' ? 'Mạng xã hội' : 'Social Media' },
@@ -217,6 +224,17 @@ export const DataSourcesList: React.FC = () => {
 
   if (isLoading) {
     return <LoadingSpinner />;
+  }
+
+  // If viewing crawl history, show the CrawlHistory component
+  if (viewingCrawlHistory) {
+    return (
+      <CrawlHistory
+        sourceUrl={viewingCrawlHistory.sourceUrl}
+        sourceName={viewingCrawlHistory.sourceName}
+        onClose={() => setViewingCrawlHistory(null)}
+      />
+    );
   }
 
   return (
@@ -444,6 +462,17 @@ export const DataSourcesList: React.FC = () => {
                   )}
                 </div>
                 <div className="source-actions">
+                  <button
+                    className="action-button view-history"
+                    onClick={() => setViewingCrawlHistory({
+                      sourceId: source.id,
+                      sourceUrl: source.source_url,
+                      sourceName: source.source_name
+                    })}
+                    title={i18n.language === 'vi' ? 'Xem lịch sử crawl' : 'View crawl history'}
+                  >
+                    <IoEye className="action-icon" />
+                  </button>
                   <button
                     className="action-button crawl"
                     onClick={() => handleCrawlNow(source.id)}

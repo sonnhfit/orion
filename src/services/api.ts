@@ -14,6 +14,38 @@ import type {
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://orionai.runagent.io';
 
+
+export interface CrawledContent {
+  id: number;
+  source_url: string;
+  content_type: string;
+  content_type_display: string;
+  title: string | null;
+  description: string | null;
+  crawl_source_id: number | null;
+  crawl_duration_seconds: number | null;
+  page_size_bytes: number | null;
+  is_processed: boolean;
+  processing_error: string | null;
+  crawled_at: string;
+  processed_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CrawledContentDetail extends CrawledContent {
+  raw_content: string | null;
+  processed_content: any | null;
+}
+
+export interface CrawlHistoryResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: CrawledContent[];
+}
+
+
 class ApiService {
   private api: AxiosInstance;
 
@@ -210,6 +242,31 @@ class ApiService {
 
   async crawlDataSource(id: number): Promise<{ status: string }> {
     const response = await this.api.post<{ status: string }>(`/api/v1/brands/data-sources/${id}/crawl_now/`);
+    return response.data;
+  }
+
+  // Crawler endpoints
+  async getCrawlHistory(sourceUrl?: string, crawlSourceId?: number, page?: number, pageSize?: number): Promise<CrawlHistoryResponse> {
+    const params: any = {};
+    if (sourceUrl) {
+      params.source_url = sourceUrl;
+    }
+    if (crawlSourceId) {
+      params.crawl_source_id = crawlSourceId;
+    }
+    if (page) {
+      params.page = page;
+    }
+    if (pageSize) {
+      params.page_size = pageSize;
+    }
+    
+    const response = await this.api.get<CrawlHistoryResponse>('/api/v1/crawler/crawl-history/', { params });
+    return response.data;
+  }
+
+  async getCrawledContentDetail(id: number): Promise<CrawledContentDetail> {
+    const response = await this.api.get<CrawledContentDetail>(`/api/v1/crawler/crawled-content/${id}/`);
     return response.data;
   }
 }
