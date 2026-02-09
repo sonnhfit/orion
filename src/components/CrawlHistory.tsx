@@ -15,10 +15,9 @@ import {
   IoCloseCircle,
   IoArrowBack,
   IoSearch,
-  IoCalendar,
   IoFilter
 } from 'react-icons/io5';
-import { apiService, type CrawledContent, type CrawledContentDetail, type CrawlHistoryResponse } from '../services/api';
+import { apiService, type CrawledContentDetail, type CrawlHistoryResponse } from '../services/api';
 import { LoadingSpinner } from './LoadingSpinner';
 import '../styles/CrawlHistory.css';
 
